@@ -10,8 +10,8 @@ pipeline {
 
         stage('Build images') {
             steps {
-                sh 'docker build -t mern-server ./server'
-                sh 'docker build -t mern-client ./client'
+                sh 'docker build -t mern-server ./Server'
+                sh 'docker build -t mern-client ./Client'
             }
         }
 
