@@ -10,21 +10,21 @@ pipeline {
 
         stage('Build images') {
             steps {
-                sh 'docker build -t mern-server ./Server'
-                sh 'docker build -t mern-client ./Client'
+                bat 'docker build -t mern-server ./Server'
+                bat 'docker build -t mern-client ./Client'
             }
         }
 
         stage('Deploy') {
             steps {
-                sh 'docker compose down || true'
-                sh 'docker compose up -d --build'
+                bat 'docker compose down'
+                bat 'docker compose up -d --build'
             }
         }
 
         stage('Verify') {
             steps {
-                sh 'docker compose ps'
+                bat 'docker compose ps'
             }
         }
     }
